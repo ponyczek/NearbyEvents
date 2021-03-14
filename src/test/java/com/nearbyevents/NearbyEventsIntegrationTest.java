@@ -2,6 +2,7 @@ package com.nearbyevents;
 
 import com.nearbyevents.api.dtos.berlinde.BerlinDeEvent;
 import com.nearbyevents.api.dtos.berlinde.BerlinDeResponse;
+import com.nearbyevents.api.exception.NearbyEventsException;
 import com.nearbyevents.api.service.NearbyEventsService;
 import com.nearbyevents.api.utils.NearbyEventsRequestValidator;
 import org.junit.Test;
@@ -93,6 +94,8 @@ public class NearbyEventsIntegrationTest {
   public void shouldThrow400WhenCityIsInInvalidFormat() {
     final String city = "invalidFormatCity1236";
     final String uri = String.format(EVENTS_PATH_PATTERN, city);
+    final String expectedErrorMessage = "Invalid city name provided";
+    when(validator.validateCity(city)).thenReturn(Mono.error(new NearbyEventsException(expectedErrorMessage)));
 
     webTestClient
         .get()
@@ -103,7 +106,7 @@ public class NearbyEventsIntegrationTest {
         .is4xxClientError()
         .expectBody()
         .jsonPath("$.error")
-        .isEqualTo("Invalid city name provided");
+        .isEqualTo(expectedErrorMessage);
   }
 
   private void compareEvents(BerlinDeEvent firstEvent, BerlinDeEvent event1) {

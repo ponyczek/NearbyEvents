@@ -10,6 +10,9 @@ Data source: [berlin.de](https://www.berlin.de/sen/web/service/maerkte-feste/str
 - This is a very basic implementation of the service.
 - The application was written in such a way that it could be easily extended.
 - The endpoints have been designed in away that will allow supporting different cities
+- I choose to implement this application using reactive web client with an assumption that 'this should be a production ready' app.
+At the moment there is no big trade-off from using it in such small application, but in the future reactive web services tend to scale better.
+
 
 ## Installation
 

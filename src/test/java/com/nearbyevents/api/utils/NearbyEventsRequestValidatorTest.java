@@ -1,13 +1,13 @@
 package com.nearbyevents.api.utils;
 
 import com.nearbyevents.api.exception.NearbyEventsException;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class NearbyEventsRequestValidatorTest {
+public class NearbyEventsRequestValidatorTest {
   private final NearbyEventsRequestValidator validator = new NearbyEventsRequestValidator();
 
   @Test

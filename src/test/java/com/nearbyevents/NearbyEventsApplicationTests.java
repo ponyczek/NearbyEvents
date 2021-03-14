@@ -1,11 +1,11 @@
 package com.nearbyevents;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NearbyEventsApplicationTests {
+public class NearbyEventsApplicationTests {
 
   @Test
-  void contextLoads() {}
+  public void contextLoads() {}
 }
